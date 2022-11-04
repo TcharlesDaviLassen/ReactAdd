@@ -1,11 +1,10 @@
-const fs = require('fs');
-// const pdf = require('html-pdf');
-import pdf from 'html-pdf';
+const fs = require('fs')
+const pdf = require('html-pdf')
 import { Request, Response, NextFunction } from 'express';
 
 class BaseController {
   generatePdf = async (html: string, req: Request, res: Response) => {
-    const options: any = {
+    const options = {
       type: 'pdf',
       format: 'A4',
       orientation: 'portrait'
@@ -18,7 +17,7 @@ class BaseController {
 
       res.header("Content-Disposition", "attachment;");
 
-      res.end(buffer);
+      res.end(buffer)
     })
   }
 }
